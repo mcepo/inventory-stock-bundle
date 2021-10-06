@@ -1,0 +1,55 @@
+{% extends '@InventoryStock/base.html.twig' %}
+{% block body %}
+<div>
+{% if not form.vars.valid %}
+<ul>
+    {# Loop through every form item #}
+    {% for child in form.children %}
+        {# Display the errors of the form item #}
+        {%for error in child.vars.errors%}
+            <li>{{error.message}}</li>
+        {%endfor%}
+    {%endfor%}
+</ul>
+{%endif%}
+</div>
+<div>
+    {{ form(form) }}
+</div>
+
+<div> Total: {{ inventories.getNumResults}} </div>
+<div> Number of pages: {{ inventories.getLastPage}} </div>
+
+<a href="{{ path('_inventory_controller_index', {page: inventories.getPreviousPage}) }}">< Previous page</a>
+<a href="{{ path('_inventory_controller_index', {page: inventories.getNextPage}) }}">Next page ></a>
+
+<table>
+    <thead>
+        <tr>
+            <th>SKU</th>
+            <th>BRANCH</th>
+            <th>STOCK</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inventory in inventories.getResults() %}
+            <tr>
+                <td>{{ inventory.sku }}</td>
+                <td>{{ inventory.branch }}</td>
+                <td>{{ inventory.stock }}</td>
+                <td><a onclick='edit_action(event)' style='cursor: pointer; color:blue'>edit_action</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+function edit_action(e) {
+    var td = e.target.parentNode.parentNode.children;
+
+    document.getElementById('inventory_sku').value = td[0].innerText;
+    document.getElementById('inventory_branch').value = td[1].innerText;
+    document.getElementById('inventory_stock').value = td[2].innerText;
+}
+</script>
+{% endblock %}

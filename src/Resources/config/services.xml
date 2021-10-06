@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults autowire="true" autoconfigure="true"/>
+        <prototype namespace="SF9\InventoryStockBundle\" resource="../../*" exclude="../../{DependencyInjection,Entity,Tests,Kernel.php}"/>
+
+        <service id="SF9\InventoryStockBundle\Command\ImportStockCommand">
+            <argument key="$projectDir">%kernel.project_dir%</argument>
+        </service>
+    </services>
+</container>
