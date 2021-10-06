@@ -6,14 +6,13 @@ The "Inventory Stock Bundle" imports product stock data and handles them.
 Usage
 -----
 
-Register the bundle in your application
+Register the bundle in your application, in **bundles.php**
 
 ```
 ...
-**SF9\InventoryStockBundle\InventoryStockBundle::class => ['all' => true],**
+SF9\InventoryStockBundle\InventoryStockBundle::class => ['all' => true],
 ...
 ```
-
 
 Example of config in **config/packages/inventory_stock.yaml**
 <br/>
