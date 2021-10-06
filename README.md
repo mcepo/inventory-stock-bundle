@@ -13,9 +13,8 @@ inventory_stock:
     # csv path relative to web root
     csv_path: 'data/stock-file.csv'
     # mail information for out of stock notification
-    out_of_stock_email:
-        to: 'marko.cepo.vk@gmail.com'
-        from: 'no-replay@support.test'
+    out_of_stock_email_to: 'marko.cepo.vk@gmail.com'
+    out_of_stock_email_from: 'no-replay@support.test'
 ```
 <br/><br/>
 
@@ -27,5 +26,3 @@ inventory_stock:
     resource: '@InventoryStockBundle/Resources/config/routes.xml'
     prefix: /inventory_stock
 ```
-
-
