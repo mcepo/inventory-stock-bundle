@@ -25,7 +25,7 @@ class OutOfStockNotificationHandler implements MessageHandlerInterface
      */
     private $from;
 
-    public function __construct(string $to, string $from, MailerInterface $mailer)
+    public function __construct(?string $to, ?string $from, MailerInterface $mailer)
     {
         $this->mailer = $mailer;
         $this->to = $to;

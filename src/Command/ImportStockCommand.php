@@ -53,7 +53,7 @@ class ImportStockCommand extends Command
      */
     private $projectDir;
 
-    public function __construct(string $csvPath, string $projectDir, InventoryRepository $ir)
+    public function __construct(?string $csvPath, string $projectDir, InventoryRepository $ir)
     {
 
         parent::__construct();

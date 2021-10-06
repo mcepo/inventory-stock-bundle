@@ -19,10 +19,10 @@ class InventoryStockExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $outOfStockNotificationdef = $container->getDefinition('SF9\InventoryStockBundle\MessageHandler\OutOfStockNotificationHandler');
-        $outOfStockNotificationdef->setArgument(0,  $config['out_of_stock_email']['to']);
-        $outOfStockNotificationdef->setArgument(1,  $config['out_of_stock_email']['from']);
+        $outOfStockNotificationdef->setArgument(0,  $config['out_of_stock_email_to']);
+        $outOfStockNotificationdef->setArgument(1,  $config['out_of_stock_email_from']);
 
         $importStockCommanddef = $container->getDefinition('SF9\InventoryStockBundle\Command\ImportStockCommand');
-        $importStockCommanddef->setArgument(0,  $config['csv_path']);
+        $importStockCommanddef->setArgument(2,  $config['csv_path']);
     }
 }
