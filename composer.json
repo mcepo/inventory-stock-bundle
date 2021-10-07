@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SF9\\InventoryStockBundle\\": "/src"
+            "SF9\\InventoryStockBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "SF9\\InventoryStockBundle\\Tests\\": "tests/"
         }
     },
     "require-dev": {
